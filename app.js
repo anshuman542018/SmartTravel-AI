@@ -12,7 +12,7 @@ form.addEventListener('submit', async (event) => {
   if (!validatePayload(payload)) return;
 
   const apiKey = value('apiKey');
-  const model = value('model') || 'gemini-1.5-flash';
+  const model = 'gemini-1.5-flash';
   if (!apiKey) {
     status('Please provide your Gemini API key.', true);
     return;
@@ -49,7 +49,7 @@ exportBtn.addEventListener('click', () => {
     mapUrl.searchParams.set('waypoints', middleStops.join('|'));
   }
 
-  mapUrl.searchParams.set('travelmode', toGoogleTravelMode(value('travelMode')));
+  mapUrl.searchParams.set('travelmode', toGoogleTravelMode('Mixed'));
   window.open(mapUrl.toString(), '_blank', 'noopener');
 });
 
@@ -58,9 +58,8 @@ function collectPayload() {
     location: value('location'),
     startTime: value('startTime'),
     endTime: value('endTime'),
-    mustVisit: value('mustVisit'),
     preferences: value('preferences'),
-    travelMode: value('travelMode'),
+    travelMode: 'Mixed',
   };
 }
 
