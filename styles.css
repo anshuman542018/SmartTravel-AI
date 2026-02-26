@@ -116,6 +116,21 @@ button {
   cursor: pointer;
 }
 
+button.secondary {
+  margin-top: 0.4rem;
+  width: 100%;
+  text-align: left;
+  background: #111d31;
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+button.secondary.active {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 1px var(--accent-2);
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -146,6 +161,24 @@ details {
   padding: 0.8rem;
   margin-bottom: 0.75rem;
   background: rgba(8, 14, 24, 0.7);
+}
+
+.review-card {
+  margin-bottom: 0.6rem;
+}
+
+.tie-item {
+  margin-bottom: 1rem;
+}
+
+.tie-title {
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+}
+
+.tie-choice {
+  margin: 0.3rem 0;
+  color: var(--accent-2);
 }
 
 ul,

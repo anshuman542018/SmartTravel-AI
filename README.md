@@ -8,10 +8,11 @@ SmartTravel AI is a lightweight web app that creates an optimized tourist itiner
 - Collects current location, time interval, must-visit places, and traveler preferences.
 - Uses Gemini to return:
   - Optimized itinerary order.
-  - Tie-break choices for conflicts (e.g., sunset vs another activity).
+  - Tie-break choices for conflicts (e.g., sunset vs another activity) with in-app option selection.
   - Comfort/safety and money-saving suggestions.
   - Reviews and "avoid this" tips per destination.
 - Exports route to Google Maps with ordered waypoints.
+- Client-side validation for time windows and safer rendering for model output.
 
 ## Run locally
 
