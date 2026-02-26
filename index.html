@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartTravel AI Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Smart Tourist Assistant</p>
+        <h1>Plan a hassle-free day trip in seconds.</h1>
+        <p>
+          Tell us your location, your available time window, places you already want to visit,
+          and your preferences. SmartTravel uses Gemini to generate an optimized route,
+          practical warnings, tie-break choices, and a Google Maps export link.
+        </p>
+      </header>
+
+      <main class="content-grid">
+        <section class="panel input-panel">
+          <h2>Create your itinerary</h2>
+          <form id="planner-form">
+            <div class="field-grid">
+              <label>
+                Current location
+                <input type="text" id="location" placeholder="e.g., Colosseum, Rome" required />
+              </label>
+              <label>
+                Start time
+                <input type="time" id="startTime" value="08:00" required />
+              </label>
+              <label>
+                End time
+                <input type="time" id="endTime" value="22:00" required />
+              </label>
+              <label>
+                Travel mode
+                <select id="travelMode">
+                  <option>Walking</option>
+                  <option>Public Transport</option>
+                  <option>Ride share / Taxi</option>
+                  <option>Mixed</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Places you already want to visit
+              <textarea id="mustVisit" rows="3" placeholder="Comma-separated list"></textarea>
+            </label>
+
+            <label>
+              Preferences (budget, food, pace, family, accessibility, hidden gems)
+              <textarea id="preferences" rows="4" placeholder="Describe what matters most to you"></textarea>
+            </label>
+
+            <details>
+              <summary>Gemini setup</summary>
+              <p class="hint">
+                Paste your Gemini API key here. It is only used in your browser session and not stored.
+              </p>
+              <label>
+                Gemini API key
+                <input type="password" id="apiKey" placeholder="AIza..." required />
+              </label>
+              <label>
+                Gemini model
+                <input type="text" id="model" value="gemini-1.5-flash" />
+              </label>
+            </details>
+
+            <button type="submit" id="generateBtn">Generate smart itinerary</button>
+          </form>
+        </section>
+
+        <section class="panel output-panel">
+          <div class="output-header">
+            <h2>Your smart plan</h2>
+            <button type="button" id="exportMaps" disabled>Export to Google Maps</button>
+          </div>
+          <p id="status" class="status">Ready to create your plan.</p>
+          <div id="result" class="result hidden"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="itinerary-template">
+      <section class="card">
+        <h3>Optimized Itinerary</h3>
+        <ol id="stops"></ol>
+      </section>
+      <section class="card">
+        <h3>Tie-break choices</h3>
+        <ul id="ties"></ul>
+      </section>
+      <section class="card">
+        <h3>Comfort & Safety Suggestions</h3>
+        <ul id="advice"></ul>
+      </section>
+      <section class="card">
+        <h3>Destination Reviews & Smart Tips</h3>
+        <div id="reviews"></div>
+      </section>
+      <section class="card">
+        <h3>Trip Summary</h3>
+        <p id="summary"></p>
+      </section>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
