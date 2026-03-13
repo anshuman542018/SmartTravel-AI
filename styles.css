@@ -1,0 +1,260 @@
+:root {
+  --bg-top: #fff5d6;
+  --bg-mid: #ffe4d2;
+  --bg-bottom: #ffd8ec;
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-strong: rgba(255, 255, 255, 0.9);
+  --text: #2e2246;
+  --muted: #6b6280;
+  --accent: #ff8b5e;
+  --accent-2: #6d5efc;
+  --success: #24b47e;
+  --danger: #d9537b;
+  --border: rgba(153, 110, 255, 0.2);
+  --shadow: 0 20px 45px rgba(145, 90, 180, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-mid) 45%, var(--bg-bottom));
+  color: var(--text);
+  position: relative;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 360px;
+  height: 360px;
+  top: -80px;
+  left: -90px;
+  background: rgba(255, 151, 102, 0.38);
+}
+
+.orb-2 {
+  width: 320px;
+  height: 320px;
+  right: -70px;
+  bottom: -90px;
+  background: rgba(124, 106, 255, 0.3);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2.2rem 1.2rem 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero {
+  margin-bottom: 0.2rem;
+}
+
+.hero h1 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+}
+
+.planner form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.row {
+  display: grid;
+}
+
+.time-row {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+label,
+summary,
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  border: 1px solid rgba(131, 110, 183, 0.24);
+  border-radius: 12px;
+  padding: 0.68rem 0.78rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(109, 94, 252, 0.28);
+  border-color: rgba(109, 94, 252, 0.4);
+}
+
+textarea {
+  resize: vertical;
+}
+
+details {
+  border: 1px dashed rgba(141, 117, 198, 0.4);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  margin-top: 0.2rem;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(120deg, var(--accent), #ffb457);
+  color: #352008;
+  font-weight: 800;
+  padding: 0.78rem 1rem;
+  cursor: pointer;
+}
+
+button.secondary {
+  margin-top: 0.45rem;
+  width: 100%;
+  text-align: left;
+  background: var(--panel-strong);
+  color: var(--text);
+  border: 1px solid rgba(131, 110, 183, 0.28);
+  font-weight: 500;
+}
+
+button.secondary.active {
+  border-color: var(--success);
+  box-shadow: 0 0 0 2px rgba(36, 180, 126, 0.2);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.status {
+  color: var(--muted);
+  margin: 0.2rem 0 0.8rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 0.8rem;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.review-card {
+  margin-bottom: 0.55rem;
+}
+
+.tie-item {
+  margin-bottom: 1rem;
+}
+
+.tie-title {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+}
+
+.tie-choice {
+  margin: 0.3rem 0;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.subtle {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.warning {
+  color: var(--danger);
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+li {
+  margin-bottom: 0.48rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .time-row {
+    grid-template-columns: 1fr;
+  }
+
+  .output-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

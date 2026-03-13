@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartTravel AI Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Smart Tourist Planner</p>
+        <h1>Build a smooth, optimized day plan in minutes.</h1>
+        <p>Enter where you are, your available hours, and what kind of experience you want. SmartTravel uses Gemini to design an efficient itinerary with tie-break options, practical traveler tips, and Google Maps export.</p>
+      </header>
+
+      <section class="panel planner">
+        <form id="planner-form">
+          <div class="row">
+            <label>
+              Current location
+              <input type="text" id="location" placeholder="e.g., Downtown Dubai" required />
+            </label>
+          </div>
+
+          <div class="row time-row">
+            <label>
+              Start
+              <input type="time" id="startTime" value="08:00" required />
+            </label>
+            <label>
+              End
+              <input type="time" id="endTime" value="22:00" required />
+            </label>
+          </div>
+
+          <div class="row">
+            <label>
+              Places & preferences
+              <textarea id="preferences" rows="4" placeholder="Example: Must visit Marina Bay Sands, prefer local food, avoid long queues, budget friendly"></textarea>
+            </label>
+          </div>
+
+          <details>
+            <summary>Gemini API key</summary>
+            <label>
+              API key
+              <input type="password" id="apiKey" placeholder="AIza..." required />
+            </label>
+          </details>
+
+          <button type="submit" id="generateBtn">Generate itinerary</button>
+        </form>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="output-header">
+          <h2>Your plan</h2>
+          <button type="button" id="exportMaps" disabled>Open in Google Maps</button>
+        </div>
+        <p id="status" class="status">Ready.</p>
+        <div id="result" class="result hidden"></div>
+      </section>
+    </main>
+
+    <template id="itinerary-template">
+      <section class="card">
+        <h3>Optimized Itinerary</h3>
+        <ol id="stops"></ol>
+      </section>
+      <section class="card">
+        <h3>Tie-break choices</h3>
+        <ul id="ties"></ul>
+      </section>
+      <section class="card">
+        <h3>Comfort & Cost Tips</h3>
+        <ul id="advice"></ul>
+      </section>
+      <section class="card">
+        <h3>Traveler Reviews</h3>
+        <div id="reviews"></div>
+      </section>
+      <section class="card">
+        <h3>Trip Summary</h3>
+        <p id="summary"></p>
+      </section>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
